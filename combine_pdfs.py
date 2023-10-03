@@ -1,9 +1,15 @@
-# Project: Combining select pages from many PDFs
-#! python3
-# combinar_pdfs.py - Combine all the PDFs in the current working directory
-# into a single PDF
-# Source: Book "Automate the Boring Stuff with Python", page 303
-# Warning: You need to update some methods like PdfFileWriter to PdfWriter
+""" _summary_
+
+Project: Combining select pages from some PDFs
+
+combine_pdfs.py - Combine all the PDFs on working directory /archivos_pdfs
+into a single PDF on parent folder
+
+Source: Book "Automate the Boring Stuff with Python", page 303
+Warning: You need to update some methods like PdfFileWriter to PdfWriter
+
+_extended_summary_
+"""
 
 # Step 1: Find all PDF files
 import os
@@ -18,7 +24,6 @@ path = os.path.join("./", "archivos_pdfs")
 for filename in os.listdir(path):
     if filename.endswith('.pdf'):
         pdfFiles.append(filename)
-# pdfFiles.sort(key = str.lower)
 
 pdfWriter = PyPDF2.PdfWriter()
 
@@ -32,7 +37,8 @@ for filename in pdfFiles:
 
 # Step 3:Add each page
 # Loop through all the pages (except the second) and add them
-    for pageNum in range(0, len(pdfReader.pages)):
+    # for pageNum in range(0, len(pdfReader.pages)):
+    for pageNum in range(0, 1):
         pageObj = pdfReader.pages[pageNum]
         pdfWriter.add_page(pageObj)
 
